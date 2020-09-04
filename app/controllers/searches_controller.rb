@@ -13,4 +13,10 @@ class SearchesController < ApplicationController
         @search = Search.create(search_params)
         redirect_to @search
     end 
+
+    private
+
+    def search_params
+        params.require(:search).permit(:name, :type, :region)
+    end 
 end
